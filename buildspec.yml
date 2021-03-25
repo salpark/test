@@ -1,0 +1,23 @@
+version: 0.2
+env:
+  variables:
+    IMAGE_CACHE_ROOT: /root/.docker-cache
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+    commands:
+      - echo Logging install
+  pre_build:
+    commands:
+      - git log
+  build:
+    commands:
+      - echo bulid
+  post_build:
+    commands:
+      - echo post
+cache:
+  paths:
+    - '/root/.m2/**/*'
+    - '/root/.docker-cache/*'
